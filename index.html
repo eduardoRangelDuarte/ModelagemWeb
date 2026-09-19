@@ -15,76 +15,94 @@
     <header>
 
         <div class="logo">
-            <h2>LOGO</h2>
+            <img src="img/logo.png" alt="Logo To-Do List">
         </div>
 
         <div class="titulo">
             <h1>Minha To-Do List</h1>
         </div>
 
-        <div class="login">
-            <input type="text" placeholder="Login">
-            <input type="password" placeholder="Senha">
-        </div>
-
     </header>
-
 
     <main>
 
         <aside class="menu">
+
             <h2>Menu</h2>
 
             <nav>
                 <ul>
-                    <li>Início</li>
-                    <li>Minhas tarefas</li>
-                    <li>Tarefas concluídas</li>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#tarefas">Minhas tarefas</a></li>
+                    <li><a href="#concluidas">Tarefas concluídas</a></li>
                 </ul>
             </nav>
-        </aside>
 
+        </aside>
 
         <section class="conteudo">
 
-            <h2>Minhas tarefas</h2>
+            <section id="inicio">
+
+                <h2>Início</h2>
+
+                <p>
+                    Bem-vindo à sua To-Do List! Organize suas tarefas de forma simples e prática.
+                </p>
+
+            </section>
+
+            <h2 id="tarefas">Minhas tarefas</h2>
 
             <div class="adicionar-tarefa">
 
                 <input
                     type="text"
+                    id="entrada-tarefa"
                     placeholder="Digite uma tarefa">
 
-                <button>Adicionar</button>
+                <button id="btn-adicionar">Adicionar</button>
 
             </div>
 
-            <ul>
-                <li>Estudar HTML</li>
-                <li>Estudar CSS</li>
-                <li>Fazer atividade</li>
+            <ul id="lista-tarefas">
             </ul>
 
-        </section>
+            <section id="concluidas">
 
+                <h2>Tarefas concluídas</h2>
+
+                <ul id="lista-concluidas"></ul>
+
+            </section>
+
+        </section>
 
         <aside class="outras">
 
             <h2>Outras</h2>
 
-            <p>Total de tarefas: 3</p>
-            <p>Concluídas: 0</p>
+            <p>
+                Total de tarefas:
+                <span id="total-tarefas">0</span>
+            </p>
+
+            <p>
+                Concluídas:
+                <span id="total-concluidas">0</span>
+            </p>
 
         </aside>
 
     </main>
-
 
     <footer>
 
         <p>Minha To-Do List - 2026</p>
 
     </footer>
+
+    <script src="script.js"></script>
 
 </body>
 
