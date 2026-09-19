@@ -1,0 +1,119 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 30px;
+
+    border-bottom: 1px solid #ccc;
+}
+
+.titulo {
+    text-align: center;
+}
+
+.titulo h1 {
+    font-size: 24px;
+}
+
+.login {
+    display: flex;
+    gap: 8px;
+}
+
+.login input {
+    padding: 8px;
+    width: 100px;
+}
+
+main {
+    flex: 1;
+
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+}
+
+.menu {
+    padding: 20px;
+    
+    border-right: 1px solid #ccc;
+}
+
+.menu ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.menu li {
+    padding: 10px 0;
+}
+
+.conteudo {
+    padding: 30px;
+}
+
+.adicionar-tarefa {
+    display: flex;
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.adicionar-tarefa input {
+    flex: 1;
+    padding: 10px;
+}
+
+.adicionar-tarefa button {
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.conteudo ul {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.conteudo li {
+    padding: 12px;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.outras {
+    padding: 20px;
+
+    border-left: 1px solid #ccc;
+}
+
+footer {
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-top: 1px solid #ccc;
+}
+
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+    }
+}
