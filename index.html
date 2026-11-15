@@ -1,109 +1,86 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>To-Do List</title>
-
+    <title>Minha To-Do List</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
+    <!-- Login demonstrativo: não substitui autenticação em servidor. -->
+    <div id="modal-login" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="titulo-login">
+        <div class="modal-card">
+            <img src="img/logo.png" alt="Logo da To-Do List" class="modal-logo">
+            <h2 id="titulo-login">Bem-vindo de volta!</h2>
+            <p class="modal-descricao">Entre para organizar suas tarefas.</p>
+            <form id="form-login">
+                <label for="input-usuario">Usuário</label>
+                <input type="text" id="input-usuario" placeholder="Digite seu usuário" autocomplete="username" required>
+                <label for="input-senha">Senha</label>
+                <input type="password" id="input-senha" placeholder="Digite sua senha" autocomplete="current-password" required>
+                <p id="msg-erro-login" class="msg-erro" role="alert" hidden>Usuário ou senha incorretos.</p>
+                <button type="submit" class="btn-primario btn-entrar">Entrar</button>
+            </form>
+            <p class="credenciais">Acesso de demonstração: <strong>admin</strong> / <strong>1234</strong></p>
+        </div>
+    </div>
 
+    <!-- Cabeçalho fixo -->
     <header>
-
-        <div class="logo">
-            <img src="img/logo.png" alt="Logo To-Do List">
-        </div>
-
-        <div class="titulo">
-            <h1>Minha To-Do List</h1>
-        </div>
-
+        <div class="logo"><img src="img/logo.png" alt="Logo da To-Do List"></div>
+        <div class="titulo"><h1>Minha To-Do List</h1><span>Organize seu dia com tranquilidade</span></div>
+        <div class="area-usuario"><span id="identificacao-usuario">admin</span><button id="btn-sair" type="button">Sair</button></div>
     </header>
 
+    <!-- Três áreas: menu, conteúdo central e informações correlacionadas -->
     <main>
-
         <aside class="menu">
-
-            <h2>Menu</h2>
-
-            <nav>
+            <h2>Navegação</h2>
+            <nav aria-label="Menu principal">
                 <ul>
                     <li><a href="#inicio">Início</a></li>
                     <li><a href="#tarefas">Minhas tarefas</a></li>
-                    <li><a href="#concluidas">Tarefas concluídas</a></li>
+                    <li><a href="#concluidas">Concluídas</a></li>
                 </ul>
             </nav>
-
+            <p class="menu-dica">Pequenas tarefas, grandes conquistas.</p>
         </aside>
 
-        <section class="conteudo">
-
-            <section id="inicio">
-
-                <h2>Início</h2>
-
-                <p>
-                    Bem-vindo à sua To-Do List! Organize suas tarefas de forma simples e prática.
-                </p>
-
+        <!-- Única área com rolagem -->
+        <section class="conteudo" id="conteudo-principal">
+            <section id="inicio" class="card-secao boas-vindas">
+                <span class="etiqueta">SEU ESPAÇO DE PRODUTIVIDADE</span>
+                <h2>Um dia mais organizado começa aqui.</h2>
+                <p>Adicione suas atividades, acompanhe o progresso e celebre cada tarefa concluída.</p>
             </section>
 
-            <h2 id="tarefas">Minhas tarefas</h2>
-
-            <div class="adicionar-tarefa">
-
-                <input
-                    type="text"
-                    id="entrada-tarefa"
-                    placeholder="Digite uma tarefa">
-
-                <button id="btn-adicionar">Adicionar</button>
-
-            </div>
-
-            <ul id="lista-tarefas">
-            </ul>
-
-            <section id="concluidas">
-
-                <h2>Tarefas concluídas</h2>
-
-                <ul id="lista-concluidas"></ul>
-
+            <section id="tarefas" class="card-secao">
+                <div class="cabecalho-secao"><div><span class="etiqueta">PLANEJAMENTO</span><h2>Minhas tarefas</h2></div><span class="marcador-secao">A fazer</span></div>
+                <div class="adicionar-tarefa">
+                    <input type="text" id="entrada-tarefa" placeholder="O que você precisa fazer?" maxlength="150" aria-label="Nova tarefa">
+                    <button id="btn-adicionar" type="button" class="btn-primario">+ Adicionar</button>
+                </div>
+                <ul id="lista-tarefas" class="lista-tarefas"></ul>
+                <p id="vazio-pendentes" class="mensagem-vazia">Nenhuma tarefa pendente. Aproveite para planejar o dia!</p>
             </section>
 
+            <section id="concluidas" class="card-secao">
+                <div class="cabecalho-secao"><div><span class="etiqueta">PROGRESSO</span><h2>Tarefas concluídas</h2></div><span class="marcador-secao concluido">Finalizadas</span></div>
+                <ul id="lista-concluidas" class="lista-tarefas"></ul>
+                <p id="vazio-concluidas" class="mensagem-vazia">Suas tarefas concluídas aparecerão aqui.</p>
+            </section>
         </section>
 
         <aside class="outras">
-
-            <h2>Outras</h2>
-
-            <p>
-                Total de tarefas:
-                <span id="total-tarefas">0</span>
-            </p>
-
-            <p>
-                Concluídas:
-                <span id="total-concluidas">0</span>
-            </p>
-
+            <h2>Seu resumo</h2>
+            <p class="resumo-descricao">Acompanhe sua produtividade.</p>
+            <div class="cartao-estatistica"><span>Total de tarefas</span><strong id="total-tarefas">0</strong></div>
+            <div class="cartao-estatistica"><span>Pendentes</span><strong id="total-pendentes">0</strong></div>
+            <div class="cartao-estatistica"><span>Concluídas</span><strong id="total-concluidas">0</strong></div>
         </aside>
-
     </main>
 
-    <footer>
-
-        <p>Minha To-Do List - 2026</p>
-
-    </footer>
-
+    <footer><p>Minha To-Do List © 2026 · Projeto de Programação e Modelagem Web</p></footer>
     <script src="script.js"></script>
-
 </body>
-
 </html>
